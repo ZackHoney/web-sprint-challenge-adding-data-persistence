@@ -2,14 +2,8 @@
 const db = require('../../data/dbConfig')
 
 async function getProjects() {
-    const project = await db('projects')
-        .select(
-            'project_name',
-            'project_id',
-            'project_description',
-            'project_completed'
-        )
-    return project
+    return await db('projects')
+       
 }
 
 // async function createProject(project) {
