@@ -3,7 +3,7 @@ const router = require('express').Router()
 const Projects = require('./model')
 
 
-router.get('/', (req, res, next) => {
+router.get('/projects', (req, res, next) => {
     Projects.getProjects()
     .then(project => {
         res.status(200).json(project);
