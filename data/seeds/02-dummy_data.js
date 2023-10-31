@@ -22,10 +22,10 @@ const tasks = [
     }
 ]
 
-const resource_assignment = [
+const project_resources = [
     {
-        project_id: 1,
-        resource_id: 1
+       project_id: 1,
+       resource_id: 1
     }
 ]
 
@@ -33,6 +33,5 @@ exports.seed = async function (knex) {
     await knex('projects').insert(projects)
     await knex('resources').insert(resources)
     await knex('tasks').insert(tasks)
-    await knex('resource_assignment').insert(resource_assignment)
-tasks
+    await knex('project_resources').insert(project_resources)
 }

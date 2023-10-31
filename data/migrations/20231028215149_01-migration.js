@@ -29,8 +29,8 @@ exports.up = async function(knex) {
             .onDelete('RESTRICT')
             .onUpdate('RESTRICT')
     })
-    .createTable('resource_assignment', table => {
-        table.increments('resource_assignment_id')
+    .createTable('project_resources', table => {
+        table.increments('project_resources_id')
         table.integer('project_id')
             .unsigned()
             .notNullable()
@@ -54,7 +54,7 @@ exports.up = async function(knex) {
  */
 exports.down = async function(knex) {
   await knex.schema
-    .dropTableIfExists('resource_assignment')
+    .dropTableIfExists('project_resources')
     .dropTableIfExists('tasks')
     .dropTableIfExists('resources')
     .dropTableIfExists('projects')

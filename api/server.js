@@ -6,7 +6,7 @@ const server = express()
 
 server.use(express.json())
 
-server.use('/api', projectsRouter)
+server.use('/api/projects', projectsRouter)
 
 server.use('*', (req, res) => {
     res.json({ api: 'up' })

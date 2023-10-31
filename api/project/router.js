@@ -3,8 +3,16 @@ const router = require('express').Router()
 const Projects = require('./model')
 
 
-router.get('/projects', (req, res, next) => {
+router.get('/', (req, res, next) => {
     Projects.getProjects()
+    .then(project => {
+        res.status(200).json(project);
+    })
+    .catch(next)
+})
+
+router.post('/', async (req, res, next) => {
+    Projects.createProject(req.body)
     .then(project => {
         res.status(200).json(project);
     })
@@ -20,4 +28,4 @@ router.use((err, req, res, next) => {// eslint-disable-line
     })
 })
 
-module.export = router
+module.exports = router
