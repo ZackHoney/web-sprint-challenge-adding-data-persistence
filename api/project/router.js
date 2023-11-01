@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
     .catch(next)
 })
 
-router.post('/', async (req, res, next) => {
+router.post('/', (req, res, next) => {
     Projects.createProject(req.body)
     .then(project => {
         res.status(200).json(project);

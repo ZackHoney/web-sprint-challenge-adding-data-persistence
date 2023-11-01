@@ -2,7 +2,7 @@ const projects = [
     { 
         project_name: 'Tile Shower',
         project_description: 'Add tile to a shower',
-        project_completed: false
+        project_completed: true
     }
 ]
 
