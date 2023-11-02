@@ -7,7 +7,7 @@ const projects = [
     {
         project_name: 'Frame Basement',
         project_description: 'Build walls in basement',
-        project_completed: false,
+        project_completed: false
     }
 ]
 
@@ -23,7 +23,13 @@ const tasks = [
         task_description: 'Install Tile',
         task_notes: 'went smoothly',
         task_completed: true,
-        project_id: 1
+        project_id: 1,
+    },
+    {
+        task_description: 'Install Flooring',
+        task_notes: 'went smoothly',
+        task_completed: false,
+        project_id: 1,
     }
 ]
 
