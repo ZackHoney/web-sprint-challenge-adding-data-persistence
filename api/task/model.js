@@ -17,7 +17,7 @@ async function getTasks() {
 
     for (let i = 0; i < taskRow.length; i++) {
         const task = {
-            project_id: taskRow[i].task_id.project_id,
+            project_id: taskRow[i].project_id,
             project_name: taskRow[i].project_name,
             project_description: taskRow[i].project_description,
             task_id: taskRow[i].task_id,
@@ -26,7 +26,7 @@ async function getTasks() {
             task_notes: taskRow[i].task_notes,
 
         }
-        if (taskRow) { result.push(task) }
+        if (taskRow) { result.push(task)}
     }
     return result
 }
