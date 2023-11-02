@@ -2,7 +2,12 @@ const projects = [
     { 
         project_name: 'Tile Shower',
         project_description: 'Add tile to a shower',
-        project_completed: true
+        project_completed: true ,
+    },
+    {
+        project_name: 'Frame Basement',
+        project_description: 'Build walls in basement',
+        project_completed: false,
     }
 ]
 
