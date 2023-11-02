@@ -2,35 +2,38 @@
 const db = require('../../data/dbConfig')
 
 async function getTasks() {
-    const result = []
-    const taskRow = await db('tasks as t')
-        .leftJoin('projects as p', 'p.project_id', 't.task_id')
-        .select(
-            'p.project_description',
-            'p.project_name',
-            't.task_id',
-            't.task_notes',
-            't.task_description',
-            't.task_completed',
-        )
+    const rows = await db("tasks as t")
+      .leftJoin("projects as p", "t.project_id", "p.project_id")
+      .select(
+        "t.task_id",
+        "t.task_description",
+        "t.task_notes",
+        "t.task_completed",
+        "p.project_name",
+        "p.project_description"
+      );
+    const result = rows.map((row) => {
+      return {
+        ...row,
+        task_completed: row.task_completed ? true : false,
+      };
+    });
+    return result;
+  }
 
-
-    for (let i = 0; i < taskRow.length; i++) {
-        const task = {
-            project_id: taskRow[i].project_id,
-            project_name: taskRow[i].project_name,
-            project_description: taskRow[i].project_description,
-            task_id: taskRow[i].task_id,
-            task_completed: taskRow[i].task_completed ? true : false,
-            task_description: taskRow[i].task_description,
-            task_notes: taskRow[i].task_notes,
-
-        }
-        if (taskRow) { result.push(task)}
-    }
-    return result
-}
+  async function addTasks(task) {
+    const [newID] = await db("tasks").insert(task);
+    const newPost = await db("tasks").where("task_id", newID);
+    const result = newPost.map((row) => {
+      return {
+        ...row,
+        task_completed: row.task_completed ? true : false,
+      };
+    });
+    return result[0];
+  }
 
 module.exports = {
-    getTasks
+    getTasks,
+    addTasks
 }
