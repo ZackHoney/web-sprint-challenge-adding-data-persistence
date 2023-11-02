@@ -6,17 +6,18 @@ async function getTasks() {
     const taskRow = await db('tasks as t')
         .leftJoin('projects as p', 'p.project_id', 't.task_id')
         .select(
-            't.task_id',
             'p.project_description',
+            'p.project_name',
+            't.task_id',
             't.task_notes',
             't.task_description',
-            't.task_completed'
+            't.task_completed',
         )
 
 
     for (let i = 0; i < taskRow.length; i++) {
         const task = {
-            project_id: taskRow[i].project_id,
+            project_id: taskRow[i].task_id.project_id,
             project_name: taskRow[i].project_name,
             project_description: taskRow[i].project_description,
             task_id: taskRow[i].task_id,

@@ -1,8 +1,8 @@
 const projects = [
-    { 
+    {
         project_name: 'Tile Shower',
         project_description: 'Add tile to a shower',
-        project_completed: true ,
+        project_completed: true,
     },
     {
         project_name: 'Frame Basement',
@@ -24,19 +24,13 @@ const tasks = [
         task_notes: 'went smoothly',
         task_completed: true,
         project_id: 1,
-    },
-    {
-        task_description: 'Install Flooring',
-        task_notes: 'went smoothly',
-        task_completed: false,
-        project_id: 1,
     }
 ]
 
 const project_resources = [
     {
-       project_id: 1,
-       resource_id: 1
+        project_id: 1,
+        resource_id: 1
     }
 ]
 
